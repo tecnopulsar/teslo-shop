@@ -11,7 +11,7 @@ import {
   IoShirtOutline,
   IoTicketOutline,
 } from "react-icons/io5";
-import { ValidSizes } from "../../../interfaces/product.interface";
+import { Size } from "../../../interfaces/product.interface";
 import Link from "next/link";
 import { useUIStore } from "@/store";
 import clsx from "clsx";
