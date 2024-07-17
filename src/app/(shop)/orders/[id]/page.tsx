@@ -1,10 +1,9 @@
 import { Title } from "@/components";
 import { initialData } from "@/seed/seed";
+import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-
-type Props = {};
+import { IoCardOutline } from "react-icons/io5";
 
 const productsInCart = [
   initialData.products[0],
@@ -12,18 +11,34 @@ const productsInCart = [
   initialData.products[2],
 ];
 
-export default function CheckouttPage({}: Props) {
+interface Props {
+  params: {
+    id: string;
+  };
+}
+
+export default function CheckouttPage({ params }: Props) {
+  const { id } = params;
+
+  // Todo: verificar
+  // redirect('/')
+
   return (
     <div className="flex justify-center items-center mb-72 px-10 sm:px-0">
       <div className="flex flex-col w-[1000px]">
-        <Title title="Verificar orden" />
+        <Title title={`Orden #${id}`} />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
           {/* Carrito */}
           <div className="flex flex-col mt-5">
-            <span className="text-xl">Ajustar elementos</span>
-            <Link href={"/cart"} className="underline mb-5">
-              Editar carrito
-            </Link>
+            <div
+              className={clsx(
+                "flex items-center rounded-lg py-2 px-3.5 text-xs font-bold text-white mb-5",
+                { "bg-red-500": false, "bg-green-700": true }
+              )}
+            >
+              <IoCardOutline size={30} />
+              <span className="mx-2">Pagado</span>
+            </div>
 
             {/* Items */}
             {productsInCart.map((product) => (
@@ -63,26 +78,15 @@ export default function CheckouttPage({}: Props) {
               <span className="text-2xl mt-5 text-right">$ 115</span>
             </div>
             <div className="mt-5 mb-2 w-full">
-              <p className="mb-5">
-                {/* Disclamer */}
-                <span className="text-xs">
-                  Al hacer click en &quot;Confirmar orden&quot;, aceptas
-                  nuestros{" "}
-                  <a href="#" className="underline">
-                    términos y condiciones
-                  </a>{" "}
-                  y{" "}
-                  <a href="#" className="underline">
-                    política de privacidad
-                  </a>
-                </span>
-              </p>
-              <Link
-                href={"/orders/123"}
-                className="flex btn-primary justify-center"
+              <div
+                className={clsx(
+                  "flex items-center rounded-lg py-2 px-3.5 text-xs font-bold text-white mb-5",
+                  { "bg-red-500": false, "bg-green-700": true }
+                )}
               >
-                Confirmar orden
-              </Link>
+                <IoCardOutline size={30} />
+                <span className="mx-2">Pagado</span>
+              </div>
             </div>
           </div>
         </div>
