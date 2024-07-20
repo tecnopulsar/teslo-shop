@@ -34,3 +34,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+Descripción
+Correr en dev
+Clonar el repositorio.
+Crear una copia del .env.template y renombrarlo a .env y cambiar las variables de entorno.
+Instalar dependencias npm install
+Levantar la base de datos docker compose up -d
+Correr las migraciones de Primsa ```npx prisma migrate dev````
+Ejecutar seed npm run seed
+Correr el proyecto npm run dev
+Correr en prod
